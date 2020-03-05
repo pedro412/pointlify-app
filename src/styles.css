@@ -1,21 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
-* {
+
+:root {
+  font-family: sans-serif, 'Open Sans';
+  font-size: 16px;
+  --text-primary: #3f3f3f;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --bg-danger: #e63462;
+  --transition-speed: 100ms;
+}
+
+body {
+  color: #000;
+  background-color: #fff;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: sans-serif, 'Open Sans';
-  font-size: 18px;
-  color: #3f3f3f;
+main {
+  margin-left: 5rem;
+  padding: 1rem;
 }
 
 h1 {
+  margin: 0;
   margin-bottom: 0.45em;
 }
 
-.container {
-  max-width: 1366px;
-  margin: auto;
-  padding: 1em 1em;
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-danger {
+  background-color: var(--bg-danger);
+  color: #fff;
 }

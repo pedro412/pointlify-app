@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif, 'Open Sans';
+  font-size: 18px;
+  color: #3f3f3f;
+}
+
+h1 {
+  margin-bottom: 0.45em;
+}
+
+.container {
+  max-width: 1366px;
+  margin: auto;
+  padding: 1em 1em;
+}

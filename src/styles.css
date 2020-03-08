@@ -8,6 +8,7 @@
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --bg-danger: #e63462;
+  --bg-success: #2ecc71;
   --transition-speed: 100ms;
 }
 
@@ -44,4 +45,14 @@ button {
 .btn-danger {
   background-color: var(--bg-danger);
   color: #fff;
+}
+
+.btn-success {
+  background-color: var(--bg-success);
+  color: #fff;
+}
+
+.container {
+  max-width: 1120px;
+  margin: auto;
 }

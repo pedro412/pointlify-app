@@ -1,14 +1,39 @@
-<div>
-  <form>
-    <h1>Login</h1>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form text-center">
+    <h1>POINTLIFY</h1>
+    <h2 class="text-grey">Iniciar sesión</h2>
     <div class="form-group">
-      <input class="form-control" type="text" placeholder="Correo" />
+      <input formControlName="email" class="form-control" type="email" placeholder="Correo" />
+      <span *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.required" class="form-control-error">
+        El correo es requerido.
+      </span>
+      <span *ngIf="email.invalid && email.errors.email" class="form-control-error">
+        Correo invalido.
+      </span>
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" placeholder="Contraseña" />
+      <input formControlName="password" class="form-control" type="password" placeholder="Contraseña" />
+      <span
+        *ngIf="(password.dirty || password.touched) && password.invalid && password.errors.required"
+        class="form-control-error"
+      >
+        La contraseña es requerida.
+      </span>
     </div>
-    <a routerLink="/" class="btn btn-success">
-      Iniciar sesión
-    </a>
+
+    <div *ngIf="error" class="form-submit-error">
+      {{ errorMessage }}
+    </div>
+
+    <button [disabled]="!loginForm.valid || loading" type="submit" class="btn btn-success btn-block">
+      <span *ngIf="!loading; else spinner">Iniciar sesión</span>
+      <ng-template #spinner>
+        Cargando...
+      </ng-template>
+    </button>
+
+    <div class="pt-1 text-center">
+      ¿Aún no tienes cuenta? <a routerLink="/register" class="text-primary">registrate aquí</a>
+    </div>
   </form>
 </div>

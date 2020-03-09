@@ -1,0 +1,12 @@
+runtime: nodejs10
+
+service: default
+
+handlers:
+  - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+    static_files: dist/pointlify-app/\1
+    upload: dist/pointlify-app/(.*)(|\.map)
+
+  - url: /(.*)
+    static_files: dist/pointlify-app/index.html
+    upload: dist/pointlify-app/index.html

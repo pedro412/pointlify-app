@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
   loading: boolean;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -28,9 +29,10 @@ export class LoginComponent implements OnInit {
     this.authService.login({ user }).subscribe(
       user => {
         console.log(user);
-        this.authService.saveUser(user);
+        this.authService.saveUserCookie(user);
         this.loading = false;
         this.error = false;
+        this.router.navigate(['/']);
       },
       err => {
         this.error = true;

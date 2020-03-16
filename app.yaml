@@ -1,5 +1,5 @@
 runtime: nodejs10
-
+instance_class: f1
 service: default
 
 handlers:
